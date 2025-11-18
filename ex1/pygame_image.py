@@ -27,20 +27,22 @@ def main():
         # screen.blit(bg_img, bg_lct)
         # screen.blit(bg_img,bg_flip_lct)
         x = tmr
+        leng = 0
+        wid = 0
         screen.blit(bg_img,[-x,0])
         screen.blit(bg_img_flip,[1600-x,0])
         screen.blit(bg_img,[3200-x,0])
         screen.blit(kouka_img,kouka_lct)
-        kouka_lct.move_ip(-1,0)
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kouka_lct.move_ip(0,-1)
+            wid = -1
         if key_lst[pg.K_DOWN]:
-            kouka_lct.move_ip(0,1)
+            wid = 1
         if key_lst[pg.K_LEFT]:
-            kouka_lct.move_ip(-1,0)
+            leng = -1
         if key_lst[pg.K_RIGHT]:
-            kouka_lct.move_ip(2,0)
+            leng = 2
+        kouka_lct.move_ip(-1+leng,0+wid)
         pg.display.update()
         tmr += 1
         if tmr == 3199:
