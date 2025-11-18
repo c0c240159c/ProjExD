@@ -5,7 +5,7 @@ import pygame as pg
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
-def main():
+def main():#おためし
     pg.display.set_caption("はじめてのPygame")
     screen = pg.display.set_mode((800, 600))
     clock = pg.time.Clock()
@@ -26,7 +26,7 @@ def main():
         screen.blit(enn, [100, 400])
         pg.display.update()
         tmr += 1        
-        clock.tick(1)
+        clock.tick(0.1)
 
 
 if __name__ == "__main__":
