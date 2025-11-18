@@ -13,6 +13,8 @@ def main():
     bg_img_flip = pg.transform.flip(bg_img,True,False)
     kouka_img = pg.image.load("fig/3.png")
     kouka_img = pg.transform.flip(kouka_img,True,False)
+    kouka_lct = kouka_img.get_rect()
+    kouka_lct.center = 300,200
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -28,7 +30,16 @@ def main():
         screen.blit(bg_img,[-x,0])
         screen.blit(bg_img_flip,[1600-x,0])
         screen.blit(bg_img,[3200-x,0])
-        screen.blit(kouka_img,[300,200])
+        screen.blit(kouka_img,kouka_lct)
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            kouka_lct.move_ip(0,-1)
+        if key_lst[pg.K_DOWN]:
+            kouka_lct.move_ip(0,1)
+        if key_lst[pg.K_LEFT]:
+            kouka_lct.move_ip(-1,0)
+        if key_lst[pg.K_RIGHT]:
+            kouka_lct.move_ip(1,0)
         pg.display.update()
         tmr += 1
         if tmr == 3199:
