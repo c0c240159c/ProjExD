@@ -17,11 +17,13 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        bg_lct = bg_img.get_rect()
+        bg_lct.center = 800-tmr,400
+        screen.blit(bg_img, bg_lct)
         screen.blit(kouka_img,[300,200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
