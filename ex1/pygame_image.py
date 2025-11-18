@@ -18,8 +18,11 @@ def main():
             if event.type == pg.QUIT: return
 
         bg_lct = bg_img.get_rect()
+        bg_flip_lct = bg_img.get_rect()
         bg_lct.center = 800-tmr,400
+        bg_flip_lct.center = 2400-tmr,400
         screen.blit(bg_img, bg_lct)
+        screen.blit(bg_img,bg_flip_lct)
         screen.blit(kouka_img,[300,200])
         pg.display.update()
         tmr += 1        
