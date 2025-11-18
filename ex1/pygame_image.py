@@ -27,9 +27,12 @@ def main():
         x = tmr
         screen.blit(bg_img,[-x,0])
         screen.blit(bg_img_flip,[1600-x,0])
+        screen.blit(bg_img,[3200-x,0])
         screen.blit(kouka_img,[300,200])
         pg.display.update()
-        tmr += 1        
+        tmr += 1
+        if tmr == 3199:
+            tmr = 0   
         clock.tick(200)
 
 
